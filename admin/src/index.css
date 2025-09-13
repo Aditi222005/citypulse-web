@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    --primary: 215 84% 16%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 25% 27%;
+
+    --muted: 215 35% 94%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 215 35% 94%;
+    --accent-foreground: 215 25% 27%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 35% 91%;
+    --input: 215 35% 91%;
+    --ring: 215 84% 16%;
+
+    /* Government/Municipal specific colors */
+    --success: 142 76% 36%;
+    --success-foreground: 210 20% 98%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 215 25% 27%;
+    
+    --info: 199 89% 48%;
+    --info-foreground: 210 20% 98%;
+    
+    /* Status colors for civic issues */
+    --status-pending: 38 92% 50%;
+    --status-pending-foreground: 215 25% 27%;
+    
+    --status-progress: 199 89% 48%;
+    --status-progress-foreground: 210 20% 98%;
+    
+    --status-resolved: 142 76% 36%;
+    --status-resolved-foreground: 210 20% 98%;
+    
+    --status-rejected: 0 72% 51%;
+    --status-rejected-foreground: 210 20% 98%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 28% 17%;
+    --foreground: 210 20% 98%;
+
+    --card: 215 28% 17%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 215 28% 17%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 210 20% 98%;
+    --primary-foreground: 215 84% 16%;
+
+    --secondary: 215 32% 23%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 32% 23%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 215 32% 23%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 32% 23%;
+    --input: 215 32% 23%;
+    --ring: 212 26% 84%;
+
+    /* Dark mode government colors */
+    --success: 142 71% 45%;
+    --success-foreground: 210 20% 98%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 215 28% 17%;
+    
+    --info: 199 89% 48%;
+    --info-foreground: 210 20% 98%;
+    
+    --status-pending: 38 92% 50%;
+    --status-pending-foreground: 215 28% 17%;
+    
+    --status-progress: 199 89% 48%;
+    --status-progress-foreground: 210 20% 98%;
+    
+    --status-resolved: 142 71% 45%;
+    --status-resolved-foreground: 210 20% 98%;
+    
+    --status-rejected: 0 62% 30%;
+    --status-rejected-foreground: 210 20% 98%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
