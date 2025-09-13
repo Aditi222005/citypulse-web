@@ -257,7 +257,7 @@ export function ReportIssueForm() {
 
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
+                  <div className="min-w-0">
                     <Label htmlFor="category">Category *</Label>
                     <Select value={formData.category} onValueChange={(value) => setFormData(prev => ({ ...prev, category: value, subcategory: "" }))}>
                       <SelectTrigger className="mt-1">
@@ -266,14 +266,14 @@ export function ReportIssueForm() {
                       <SelectContent>
                         {Object.entries(categories).map(([key, cat]) => (
                           <SelectItem key={key} value={key}>
-                            {cat.label}
+                            <span className="truncate">{cat.label}</span>
                           </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
                   </div>
 
-                  <div>
+                  <div className="min-w-0">
                     <Label htmlFor="subcategory">Subcategory</Label>
                     <Select 
                       value={formData.subcategory} 
@@ -286,7 +286,7 @@ export function ReportIssueForm() {
                       <SelectContent>
                         {formData.category && categories[formData.category as keyof typeof categories]?.subcategories.map((sub) => (
                           <SelectItem key={sub} value={sub}>
-                            {sub}
+                            <span className="truncate">{sub}</span>
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -407,24 +407,24 @@ export function ReportIssueForm() {
                   </h4>
                   
                   <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Title:</span>
-                      <span className="font-medium">{formData.title || "Not specified"}</span>
+                    <div className="flex justify-between items-start gap-2">
+                      <span className="text-muted-foreground flex-shrink-0">Title:</span>
+                      <span className="font-medium text-right break-words">{formData.title || "Not specified"}</span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Category:</span>
-                      <span className="font-medium">
+                    <div className="flex justify-between items-start gap-2">
+                      <span className="text-muted-foreground flex-shrink-0">Category:</span>
+                      <span className="font-medium text-right break-words">
                         {formData.category ? categories[formData.category as keyof typeof categories]?.label : "Not specified"}
                       </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Priority:</span>
-                      <Badge className={`${urgencyInfo.color.replace('text-', 'bg-')}/10 ${urgencyInfo.color} border-0`}>
+                    <div className="flex justify-between items-center gap-2">
+                      <span className="text-muted-foreground flex-shrink-0">Priority:</span>
+                      <Badge className={`${urgencyInfo.color.replace('text-', 'bg-')}/10 ${urgencyInfo.color} border-0 whitespace-nowrap`}>
                         {urgencyInfo.label}
                       </Badge>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Photos:</span>
+                    <div className="flex justify-between items-center gap-2">
+                      <span className="text-muted-foreground flex-shrink-0">Photos:</span>
                       <span className="font-medium">{formData.images.length} uploaded</span>
                     </div>
                   </div>

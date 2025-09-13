@@ -117,25 +117,25 @@ export function RecentReports() {
                 className="border rounded-lg p-4 transition-smooth hover:shadow-card hover:border-primary/20"
               >
                 <div className="flex items-start justify-between mb-3">
-                  <div className="flex-1">
-                    <h4 className="font-medium text-foreground mb-1">
+                  <div className="flex-1 min-w-0 pr-3">
+                    <h4 className="font-medium text-foreground mb-1 line-clamp-2 break-words">
                       {report.title}
                     </h4>
                     <p className="text-sm text-muted-foreground line-clamp-2">
                       {report.description}
                     </p>
                   </div>
-                  <div className="flex flex-col items-end space-y-2">
+                  <div className="flex flex-col items-end space-y-2 flex-shrink-0">
                     <Badge 
-                      className={cn(priorityInfo.color, "text-white text-xs")}
+                      className={cn(priorityInfo.color, "text-white text-xs whitespace-nowrap")}
                     >
                       {priorityInfo.label}
                     </Badge>
                     <div className={cn(
-                      "flex items-center space-x-1 px-2 py-1 rounded-full text-xs",
+                      "flex items-center space-x-1 px-2 py-1 rounded-full text-xs whitespace-nowrap",
                       statusInfo.bg
                     )}>
-                      <StatusIcon className={cn("h-3 w-3", statusInfo.color)} />
+                      <StatusIcon className={cn("h-3 w-3 flex-shrink-0", statusInfo.color)} />
                       <span className={statusInfo.color}>
                         {statusInfo.label}
                       </span>
@@ -143,25 +143,25 @@ export function RecentReports() {
                   </div>
                 </div>
                 
-                <div className="flex items-center justify-between text-xs text-muted-foreground">
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center space-x-1">
-                      <Calendar className="h-3 w-3" />
-                      <span>{report.date}</span>
+                <div className="flex items-center justify-between text-xs text-muted-foreground flex-wrap gap-2">
+                  <div className="flex items-center space-x-4 flex-wrap">
+                    <div className="flex items-center space-x-1 min-w-0">
+                      <Calendar className="h-3 w-3 flex-shrink-0" />
+                      <span className="truncate">{report.date}</span>
                     </div>
-                    <div className="flex items-center space-x-1">
-                      <MapPin className="h-3 w-3" />
-                      <span>{report.location}</span>
+                    <div className="flex items-center space-x-1 min-w-0">
+                      <MapPin className="h-3 w-3 flex-shrink-0" />
+                      <span className="truncate">{report.location}</span>
                     </div>
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge variant="secondary" className="text-xs whitespace-nowrap">
                       {report.category}
                     </Badge>
                   </div>
                   
                   {report.responses > 0 && (
-                    <div className="flex items-center space-x-1">
-                      <MessageSquare className="h-3 w-3" />
-                      <span>{report.responses} responses</span>
+                    <div className="flex items-center space-x-1 min-w-0">
+                      <MessageSquare className="h-3 w-3 flex-shrink-0" />
+                      <span className="truncate">{report.responses} responses</span>
                     </div>
                   )}
                 </div>

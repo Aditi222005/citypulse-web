@@ -100,28 +100,28 @@ export function RecentIssues() {
           {mockIssues.map((issue) => (
             <div key={issue.id} className="border rounded-lg p-4 hover:bg-muted/50 transition-colors">
               <div className="flex items-start justify-between mb-2">
-                <div className="flex-1">
-                  <h4 className="font-medium text-foreground mb-1">{issue.title}</h4>
-                  <p className="text-sm text-muted-foreground mb-2">{issue.category}</p>
+                <div className="flex-1 min-w-0 pr-3">
+                  <h4 className="font-medium text-foreground mb-1 line-clamp-2 break-words">{issue.title}</h4>
+                  <p className="text-sm text-muted-foreground mb-2 truncate">{issue.category}</p>
                 </div>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-shrink-0">
                   {getPriorityBadge(issue.priority)}
                   {getStatusBadge(issue.status)}
                 </div>
               </div>
               
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <MapPin className="h-3 w-3" />
-                  {issue.location}
+              <div className="flex items-center gap-4 text-sm text-muted-foreground flex-wrap">
+                <div className="flex items-center gap-1 min-w-0">
+                  <MapPin className="h-3 w-3 flex-shrink-0" />
+                  <span className="truncate">{issue.location}</span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <User className="h-3 w-3" />
-                  {issue.reportedBy}
+                <div className="flex items-center gap-1 min-w-0">
+                  <User className="h-3 w-3 flex-shrink-0" />
+                  <span className="truncate">{issue.reportedBy}</span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <Clock className="h-3 w-3" />
-                  {issue.reportedAt}
+                <div className="flex items-center gap-1 min-w-0">
+                  <Clock className="h-3 w-3 flex-shrink-0" />
+                  <span className="truncate">{issue.reportedAt}</span>
                 </div>
               </div>
             </div>

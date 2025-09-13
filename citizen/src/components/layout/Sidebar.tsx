@@ -9,11 +9,13 @@ import {
   Award,
   PlusCircle,
   Clock,
-  CheckCircle
+  CheckCircle,
+  LogOut
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -74,6 +76,7 @@ const navItems = [
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const location = useLocation();
+  const { user, logout } = useAuth();
 
   return (
     <>
@@ -147,9 +150,25 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             })}
           </nav>
 
-          {/* Citizen Stats */}
+          {/* User Profile */}
           <div className="p-4 border-t">
             <div className="bg-gradient-subtle rounded-lg p-4 space-y-3">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-primary font-medium text-sm">
+                    {user?.firstName?.charAt(0)}{user?.lastName?.charAt(0)}
+                  </span>
+                </div>
+                <div className="flex-1 min-w-0 overflow-hidden">
+                  <p className="font-medium text-sm truncate">
+                    {user?.firstName} {user?.lastName}
+                  </p>
+                  <p className="text-xs text-muted-foreground truncate">
+                    {user?.email}
+                  </p>
+                </div>
+              </div>
+              
               <div className="flex items-center justify-between">
                 <span className="text-sm font-medium text-foreground">Citizen Score</span>
                 <Badge className="gradient-civic text-white">Elite</Badge>
@@ -161,6 +180,16 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               <div className="w-full bg-border rounded-full h-2">
                 <div className="gradient-primary h-2 rounded-full" style={{ width: "75%" }}></div>
               </div>
+              
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={logout}
+                className="w-full text-red-600 hover:text-red-700 hover:bg-red-50"
+              >
+                <LogOut className="h-4 w-4 mr-2" />
+                Logout
+              </Button>
             </div>
           </div>
         </div>
